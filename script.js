@@ -7,7 +7,8 @@ const questions = [
             {text: "4", correct: false},
             {text: "0", correct: false},
             {text: "3", correct: false},
-        ]
+        ],
+        img: "img/1qbackground.png",
     },
     {
         question: "7 + 3 = ?",
@@ -17,60 +18,12 @@ const questions = [
             {text: "4", correct: false},
             {text: "10", correct: true},
             {text: "8", correct: false},
-        ] 
-    },
-    {
-        question: "28 - 3 = ?",
-        answers: [
-            {text: "23", correct: false},
-            {text: "20", correct: false},
-            {text: "25", correct: true},
-            {text: "27", correct: false},
-            {text: "19", correct: false},
-        ] 
-    },
-    {
-        question: "23 + 13 = ?",
-        answers: [
-            {text: "34", correct: false},
-            {text: "28", correct: false},
-            {text: "26", correct: false},
-            {text: "36", correct: true},
-            {text: "31", correct: false},
-        ] 
-    },
-    {
-        question: "19 + 3 = ?",
-        answers: [
-            {text: "21", correct: false},
-            {text: "18", correct: false},
-            {text: "13", correct: false},
-            {text: "22", correct: true},
-            {text: "25", correct: false},
-        ] 
-    },
-    {
-        question: "1 + 1 = ?",
-        answers: [
-            {text: "2", correct: true},
-            {text: "1", correct: false},
-            {text: "4", correct: false},
-            {text: "0", correct: false},
-            {text: "3", correct: false},
-        ]
-    },
-    {
-        question: "1 + 1 = ?",
-        answers: [
-            {text: "2", correct: true},
-            {text: "1", correct: false},
-            {text: "4", correct: false},
-            {text: "0", correct: false},
-            {text: "3", correct: false},
-        ]
-    },  
+        ],
+        img: "img/2qbackground.png",
+    }
 ];
 
+const questionImage = document.getElementById("question-img");
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
@@ -89,12 +42,14 @@ function showQuestion() {
     resetState();   
     let currentQuestion = questions[currentQuestionIndex]
     let questionNo = currentQuestionIndex + 1;
+    questionImage.src = currentQuestion.img;
     questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+    
 
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement("button");
         button.innerHTML = answer.text;
-        button.classList.add("btn");
+        button.classList.add("btn");   
         answerButtons.appendChild(button);
         if (answer.correct) {
             button.dataset.correct = answer.correct;
@@ -133,6 +88,7 @@ function showScore() {
     questionElement.innerHTML = `Você acertou ${score} de ${questions.length}!`;
     nextButton.innerHTML = "Tentar novamente";
     nextButton.style.display = "block";
+    questionImage.src = img/scorebackground.png;
 }
 
 function handleNextButton() {
