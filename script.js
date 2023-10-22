@@ -176,12 +176,16 @@ function showText() {
 
     if (score <= 5) {
         scoreText = "Você não sabe quase nada sobre ursos. Estude mais e tente novamente!";
+        scoreImage = "img/scoreBackground5.webp";
     } else if (score <= 7){
         scoreText = "Aparentemente você já estudou sobre ursos alguma vez, mas ainda tem muito o que aprender. Estude mais e tente novamente!";
+        scoreImage = "img/scoreBackground7.jpg";
     } else if (score < 10) {
         scoreText = "Parabés, pelo visto você entende bastante sobre ursos, mas lembre-se que sempre é possível aprimorar seus conhecimentos. Estude mais e tente novamente! ";
+        scoreImage = "img/scoreBackground10.jpg";
     } else {
         scoreText = "Parabéns, você certamente é um amante de ursos. Sempre que puder, espalhe esse conhecimento com outras pessoas!";
+        scoreImage = "img/scoreBackground.png";
     }
 
     let text = document.createElement('p');
@@ -198,7 +202,7 @@ function showScore() {
     showText();
     nextButton.innerHTML = "Tentar novamente";
     nextButton.style.display = "block";
-    questionImage.src = "img/scoreBackground.png";
+    questionImage.src = scoreImage;
 }
 
 function handleNextButton() {

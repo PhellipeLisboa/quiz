@@ -6,7 +6,11 @@
 }
 
 body {
-    background-color: cyan;
+    /* background-color: cyan; */
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, #f5e1c8 0%, #b38251 100%);
+    background-size: cover;
+    background-position: center;
 }
 
 .app {
@@ -101,4 +105,58 @@ body {
     margin-bottom: 10px;
     background-color: white;
     text-align: justify;
+}
+
+.start {
+    width: 100%;
+    height: 1080px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.appStart {
+    background-color: blueviolet;
+    width: 90%;
+    max-width: 600px;
+    margin: 50px auto;
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid black;
+}   
+
+.appStart h1 {
+    font-size: 25px;
+    color: white;
+    font-weight: 600;
+    border-bottom: 1px solid #afafaf;
+    padding-bottom: 30px;
+}
+
+.startButton {
+    background-color: white;
+    color: #222;
+    font-weight: 800;
+    width: 250px;
+    border: 1px solid rgb(31, 31, 31);
+    padding: 10px;
+    margin: 20px auto 0;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+}
+
+#startButton:hover {
+    background-color: rgb(150, 255, 255);   
+}
+
+.startImage {
+    margin-top: 30px;
+    width: 540px;
+    height: 405px;
+    max-width: 540px;
+    max-height: 405px;
+    border-radius: 10px;
+    border: 2px solid #afafaf;
 }
