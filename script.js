@@ -224,4 +224,3 @@ nextButton.addEventListener("click", () => {
 });
 
 startQuiz();
-console.log("teste");

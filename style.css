@@ -6,8 +6,6 @@
 }
 
 body {
-    /* background-color: cyan; */
-    background: rgb(238,174,202);
     background: radial-gradient(circle, #f5e1c8 0%, #b38251 100%);
     background-size: cover;
     background-position: center;
