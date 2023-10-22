@@ -1,25 +1,113 @@
 const questions = [
     {
-        question: "1 + 1 = ?",
+        question: "Qual é o nome científico do Urso-Preguiça?",
         answers: [
-            {text: "2", correct: true},
-            {text: "1", correct: false},
-            {text: "4", correct: false},
-            {text: "0", correct: false},
-            {text: "3", correct: false},
+            {text: "Melursus ursinus", correct: true},
+            {text: "Tremarctos ornatus", correct: false},
+            {text: "Helarctos malayanus", correct: false},
+            {text: "Ursus thibetanus", correct: false},
+            {text: "Ursus americanus", correct: false},
         ],
-        img: "img/1qbackground.png",
+        img: "img/1qbackground.jpg",
     },
     {
-        question: "7 + 3 = ?",
+        question: "Quais ursos possuem uma mancha em forma de \"V\" no peito ?",
         answers: [
-            {text: "2", correct: false},
-            {text: "6", correct: false},
-            {text: "4", correct: false},
-            {text: "10", correct: true},
-            {text: "8", correct: false},
+            {text: "Urso negro asiático e urso negro americano", correct: false},
+            {text: "Urso polar e urso negro americano", correct: false},
+            {text: "Urso do Sol e urso-preguiça", correct: false},
+            {text: "Urso negro asiático e urso-preguiça", correct: true},
+            {text: "Urso-de-óculos e urso pardo", correct: false},
         ],
-        img: "img/2qbackground.png",
+        img: "img/2qbackground.jpg",
+    },
+    {
+        question: "Em quais regiões é possível encontrar ursos pandas-gigantes?",
+        answers: [
+            {text: "Canadá, alguns estados dos Estados Unidos e norte do México", correct: false},
+            {text: "Malásia, Tailândia, Vietnã e Bornéu", correct: false},
+            {text: "Venezuela, Colômbia, Equador, Bolívia e Peru", correct: false},
+            {text: "Sudoeste da China", correct: true},
+            {text: "Círculo Polar Ártico", correct: false},
+        ],
+        img: "img/3qbackground.jpg",
+    },
+    {
+        question: "Qual das seguintes espécies de ursos não corre risco de extinção atualmente?",
+        answers: [
+            {text: "Urso negro americano", correct: true},
+            {text: "Urso do sol", correct: false},
+            {text: "Urso polar", correct: false},
+            {text: "Urso-preguiça", correct: false},
+            {text: "Urso-de-óculos", correct: false},
+        ],
+        img: "img/4qbackground.png",
+    },
+    {
+        question: "Qual das seguintes espécies de ursos possui a alimentação mais atípica?",
+        answers: [
+            {text: "Urso pardo", correct: false},
+            {text: "Urso panda-gigante", correct: true},
+            {text: "Urso negro asiático", correct: false},
+            {text: "Urso negro americano", correct: false},
+            {text: "Urso polar", correct: false},
+        ],
+        img: "img/5qbackground.jpg",
+    },
+    {
+        question: "Qual das seguintes espécies de ursos tem como ameaça o uso medicinal de sua bile?",
+        answers: [
+            {text: "Urso panda-gigante", correct: false},
+            {text: "Urso pardo", correct: false},
+            {text: "Urso do Sol", correct: true},
+            {text: "Urso-preguiça", correct: false},
+            {text: "Urso-de-óculos", correct: false},
+        ],
+        img: "img/6qbackground.jpg",
+    },
+    {
+        question: "Qual é a maior espécie de ursos existente em termos de proporção corporal?",
+        answers: [
+            {text: "Urso-de-óculos", correct: false},
+            {text: "urso-preguiça", correct: false},
+            {text: "Urso panda-gigante", correct: false},
+            {text: "Urso negro asiático", correct: false},
+            {text: "Urso polar", correct: true},
+        ],
+        img: "img/7qbackground.png",
+    },
+    {
+        question: "Qual é a cor da pelagem dos ursos polares ?",
+        answers: [
+            {text: "Marrom", correct: false},
+            {text: "Incolor", correct: true},
+            {text: "Branca", correct: false},
+            {text: "Bege", correct: false},
+            {text: "Preta", correct: false},
+        ],
+        img: "img/8qbackground.jpg",
+    },
+    {
+        question: "Qual das espécies de ursos tem a pelagem do pescoço mais longa, formando uma espécie de juba ?",
+        answers: [
+            {text: "Urso de óculos", correct: false},
+            {text: "Urso do sol", correct: false},
+            {text: "Urso negro americano", correct: false},
+            {text: "Urso negro asiático", correct: true},
+            {text: "Urso-preguiça", correct: false},
+        ],
+        img: "img/9qbackground.webp",
+    },
+    {
+        question: "Qual das espécies de ursos abaixo melhor tolera a presença humana ?",
+        answers: [
+            {text: "Urso negro americano", correct: true},
+            {text: "Urso negro asiático", correct: false},
+            {text: "Urso panda-gigante", correct: false},
+            {text: "Urso pardo", correct: false},
+            {text: "Urso do sol", correct: false},
+        ],
+        img: "img/10qbackground.webp",
     }
 ];
 
@@ -30,6 +118,7 @@ const nextButton = document.getElementById("next-btn");
 
 let currentQuestionIndex = 0;
 let score = 0;
+let scoreText = "";
 
 function startQuiz() {
     currentQuestionIndex = 0;
@@ -83,12 +172,33 @@ function selectAnswer(e) {
     nextButton.style.display = "block";
 }
 
+function showText() {
+
+    if (score <= 5) {
+        scoreText = "Você não sabe quase nada sobre ursos. Estude mais e tente novamente!";
+    } else if (score <= 7){
+        scoreText = "Aparentemente você já estudou sobre ursos alguma vez, mas ainda tem muito o que aprender. Estude mais e tente novamente!";
+    } else if (score < 10) {
+        scoreText = "Parabés, pelo visto você entende bastante sobre ursos, mas lembre-se que sempre é possível aprimorar seus conhecimentos. Estude mais e tente novamente! ";
+    } else {
+        scoreText = "Parabéns, você certamente é um amante de ursos. Sempre que puder, espalhe esse conhecimento com outras pessoas!";
+    }
+
+    let text = document.createElement('p');
+    text.className = "score-text";
+    text.innerText = scoreText;
+
+    let element = document.querySelector('.score-text-div');
+    element.appendChild(text);
+}
+
 function showScore() {
     resetState();
-    questionElement.innerHTML = `Você acertou ${score} de ${questions.length}!`;
+    questionElement.innerHTML = `Você acertou ${score} de ${questions.length}`;
+    showText();
     nextButton.innerHTML = "Tentar novamente";
     nextButton.style.display = "block";
-    questionImage.src = img/scorebackground.png;
+    questionImage.src = "img/scoreBackground.png";
 }
 
 function handleNextButton() {
@@ -104,6 +214,7 @@ nextButton.addEventListener("click", () => {
     if(currentQuestionIndex < questions.length){
         handleNextButton();
     } else {
+        document.querySelector(".score-text").remove();
         startQuiz();
     }
 });
